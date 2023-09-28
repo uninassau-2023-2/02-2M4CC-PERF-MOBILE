@@ -5,7 +5,7 @@
 <table>
   <tr>
     <td align="center">
-      <a href="http://github.com/tatialveso">
+      <a>
         <img src="https://avatars.githubusercontent.com/u/56259137?v=4" width="100px;" alt="Foto de Tati Alves no GitHub"/><br>
         <sub>
           <b>Ana Letícia Farias de Souza - 01600640 </b>
@@ -18,7 +18,7 @@
 <table>
   <tr>
     <td align="center">
-      <a href="http://github.com/tatialveso">
+      <a>
         <img src="https://avatars.githubusercontent.com/u/56259137?v=4" width="100px;" alt="Foto de Tati Alves no GitHub"/><br>
         <sub>
           <b>Carlos Frederico Vasconcelos Guimarães Filho - 01285947 </b>
@@ -31,7 +31,7 @@
 <table>
   <tr>
     <td align="center">
-      <a href="http://github.com/tatialveso">
+      <a>
         <img src="https://avatars.githubusercontent.com/u/56259137?v=4" width="100px;" alt="Foto de Tati Alves no GitHub"/><br>
         <sub>
           <b> João Luis de Araújo Mendes - 01510913 </b>
@@ -44,7 +44,7 @@
 <table>
   <tr>
     <td align="center">
-      <a href="http://github.com/tatialveso">
+      <a>
         <img src="https://avatars.githubusercontent.com/u/56259137?v=4" width="100px;" alt="Foto de Tati Alves no GitHub"/><br>
         <sub>
           <b>Lorena Mendes Diniz - 01528548 </b>
@@ -57,7 +57,7 @@
 <table>
   <tr>
     <td align="center">
-      <a href="http://github.com/tatialveso">
+      <a>
         <img src="https://avatars.githubusercontent.com/u/56259137?v=4" width="100px;" alt="Foto de Tati Alves no GitHub"/><br>
         <sub>
           <b> Pedro Victor Gomes de Almeida Costa - 01260313 </b>
