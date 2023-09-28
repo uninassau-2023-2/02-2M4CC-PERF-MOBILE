@@ -6,7 +6,7 @@
   <tr>
     <td align="center">
       <a>
-        <img src="https://avatars.githubusercontent.com/u/56259137?v=4" width="100px;" alt="Foto de Tati Alves no GitHub"/><br>
+        <img width="100px;" alt="Foto de Tati Alves no GitHub"/><br>
         <sub>
           <b>Ana Letícia Farias de Souza - 01600640 </b>
         </sub>
