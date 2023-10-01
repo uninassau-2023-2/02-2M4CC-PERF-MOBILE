@@ -1,4 +1,5 @@
 # Alunos
 
-* Nome1 Sobrenome1 - 0123456
-* Nome2 Sobrenome2 - 0987654
+* Charles Alves Sales Junior - 01370813
+* Lauro Viana Figueiredo - 01523689
+* Vinícius Mendes Belo - 01555920
