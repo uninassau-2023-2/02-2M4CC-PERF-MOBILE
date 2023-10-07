@@ -1,0 +1,20 @@
+<ion-card>
+  <ion-card-content>
+    <ion-button
+      expand="block"
+      (click)="chamarSenha()"
+      >Chamar Próxima Senha</ion-button
+    >
+  </ion-card-content>
+  <ion-card-header>
+    <ion-label class="senha-chamada"
+      >Últimas senhas chamadas:</ion-label
+    >
+    <ion-chip
+      *ngFor="let senha of senhasService.senhasAtendidas.slice(-5)"
+      style="font-size: 30px"
+    >
+      {{ senha }}
+    </ion-chip>
+  </ion-card-header>
+</ion-card>
