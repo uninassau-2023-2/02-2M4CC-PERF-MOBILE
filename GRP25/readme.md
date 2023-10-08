@@ -6,4 +6,3 @@
 * Lohana Lislie - 01536654
 * Ramon De Souza - 01506931
 * Willian Barbosa - 01506070
-* wendell amaral - 01519971
