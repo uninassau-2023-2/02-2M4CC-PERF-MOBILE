@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <title>Previsão do tempo</title>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <div class="logo">
+                <img src="./logo.png" alt="">
+            </div>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="index2.html">Início</a>
+                    </li>
+                    <li>
+                        <a href="index.html">Previsão do tempo</a>
+                    </li>
+                    <li>
+                        <a href="index3.html">Onde nos encontrar</a>
+                    </li>
+                </ul>
+                <div class="login-signup">
+               
+                </div>
+            </nav>
+        </div>
+        <div class="header-right">
+            <div class="login-signup">
+            
+            </div>
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </header>
+    <article id="mapa" class="conteudo-postagens">
+        <div class="mapa">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.487517534753!2d-34.905824289573395!3d-8.051649991942236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab18e1236c4cc5%3A0xcf30335f63037230!2sUNINASSAU%20Gra%C3%A7as%20-%20Bloco%20A!5e0!3m2!1spt-BR!2sbr!4v1696306675140!5m2!1spt-BR!2sbr" width="1530" height="660" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </article>
+    <script>
+        hamburger = document.querySelector(".hamburger");
+        nav = document.querySelector("nav");
+        hamburger.onclick = function() {
+            nav.classList.toggle("active");
+        }
+        </script>
+    </body>
+</html>
