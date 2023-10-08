@@ -1,4 +1,4 @@
-# Alunos 4NMA
+# Alunos-4MA
 
 * Breno Cavalcante - 01523707
 * Iago Cesar - 01507049
