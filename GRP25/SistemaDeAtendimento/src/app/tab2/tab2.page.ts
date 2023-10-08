@@ -15,17 +15,24 @@ export class Tab2Page {
 
     if(this.senhasService.senhasArray.SP.length > 0){
       senhaChamada = this.senhasService.senhasArray.SP.shift();
+      if(senhaChamada !== ''){
+          this.senhasService.senhasAtendidasSP.push(senhaChamada);
+      }
     }else if(this.senhasService.senhasArray.SE.length > 0){
       senhaChamada = this.senhasService.senhasArray.SE.shift();
+      if(senhaChamada !== ''){
+          this.senhasService.senhasAtendidasSE.push(senhaChamada);
+      }
     }else if(this.senhasService.senhasArray.SG.length > 0){
       senhaChamada = this.senhasService.senhasArray.SG.shift();
+      if(senhaChamada !== ''){
+          this.senhasService.senhasAtendidasSG.push(senhaChamada);
+      }
     }
 
-    if(senhaChamada !== ''){
-      this.senhasService.senhasAtendidas.push(senhaChamada);
-    }
-
-    console.log(this.senhasService.senhasAtendidas)
+    console.log(this.senhasService.senhasAtendidasSE)
+    console.log(this.senhasService.senhasAtendidasSP)
+    console.log(this.senhasService.senhasAtendidasSG)
   }
 
 }

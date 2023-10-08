@@ -21,7 +21,9 @@ export class SenhasService {
   public tmpPrior: number = 0;
   public tmpExame: number = 0;
 
-  public senhasAtendidas: any = [];
+  public senhasAtendidasSP: any = [];
+  public senhasAtendidasSE: any = [];
+  public senhasAtendidasSG: any = [];
 
   somaGeral() {
     this.senhasGeral++;

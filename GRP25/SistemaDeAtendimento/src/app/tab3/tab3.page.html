@@ -25,4 +25,20 @@
       </ion-list>
     </ion-card-content>
   </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-label>
+        Relátorio senhas atendidas:
+      </ion-label>
+    </ion-card-header>
+    <ion-card-content>
+
+      <ion-list>
+        <ion-item>Total: {{senhasService.senhasAtendidasSP.length + senhasService.senhasAtendidasSE.length + senhasService.senhasAtendidasSG.length}} </ion-item>
+        <ion-item>Geral: {{senhasService.senhasAtendidasSG.length}} </ion-item>
+        <ion-item>Prioritária: {{senhasService.senhasAtendidasSP.length}} </ion-item>
+        <ion-item>Exame: {{senhasService.senhasAtendidasSE.length}} </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
