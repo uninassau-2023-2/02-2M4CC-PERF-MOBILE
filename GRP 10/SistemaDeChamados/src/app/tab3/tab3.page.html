@@ -1,0 +1,47 @@
+<ion-card>
+  <ion-card-content>
+    <ion-list class="ion-text-center"> 
+      <ion-label style="font-size: 30px">Relatórios</ion-label>
+      <ion-item  style="font-size: 20px"
+        >Senhas Emitidas: {{senhasService.senhasTotais}}</ion-item
+      >
+      <ion-item style="font-size: 20px"
+        >Senhas Gerais: {{senhasService.senhasGeral}}</ion-item
+      >
+      <ion-item style="font-size: 20px"
+        >Senhas Prioritárias: {{senhasService.senhasPrioridade}}</ion-item
+      >
+      <ion-item style="font-size: 20px"
+        >Senhas dos Exame: {{senhasService.senhasExames}}</ion-item
+      >
+    </ion-list>
+  </ion-card-content>
+</ion-card>
+
+<ion-card>
+  <ion-card-header>
+    <ion-label style="font-size: 30px" class="tempo-medio"
+      >Tempo Médio de Atendimento:</ion-label
+    >
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item>
+      <ion-label style="font-size: 20px">Geral:</ion-label>
+      <ion-label style="font-size: 20px"
+        >{{ senhasService.TempoIntermediarioTudo }} minutos</ion-label
+      >
+    </ion-item>
+    <ion-item>
+      <ion-label style="font-size: 20px">Prioritária:</ion-label>
+      <ion-label style="font-size: 20px"
+        >{{ senhasService.TempoIntermediarioPrioridade }} minutos</ion-label
+      >
+    </ion-item>
+    <ion-item>
+      <ion-label style="font-size: 20px">Exame:</ion-label>
+      <ion-label style="font-size: 20px"
+        >{{ senhasService.TempoIntermediarioExame }} minutos</ion-label
+      >
+    </ion-item>
+  </ion-card-content>
+</ion-card>
