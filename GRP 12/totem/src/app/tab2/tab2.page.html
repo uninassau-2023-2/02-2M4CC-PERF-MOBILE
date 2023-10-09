@@ -1,17 +1,21 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
-</ion-content>
+<ion-card>
+  <ion-card-content>
+    <ion-button
+      expand="block"
+      (click)="chamarProxSenha()"
+      style="font-size: 18px"
+      >Chamar Próxima Senha</ion-button
+    >
+  </ion-card-content>
+  <ion-card-header>
+    <ion-label style="font-size: 30px" class="senha-chamada"
+      >Últimas senhas chamadas:</ion-label
+    >
+    <ion-chip
+      *ngFor="let senha of senhasService.senhasChamadas.slice(-5)"
+      style="font-size: 40px"
+    >
+      {{ senha }}
+    </ion-chip>
+  </ion-card-header>
+</ion-card>
