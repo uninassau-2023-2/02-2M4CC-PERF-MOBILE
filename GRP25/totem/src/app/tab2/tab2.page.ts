@@ -13,21 +13,24 @@ export class Tab2Page {
   chamarSenha(){
     let senhaChamada: string = '';
 
-    if(this.senhasService.senhasArray.SP.length > 0){
+    if(this.senhasService.senhasSPEmEspera > 0){
       senhaChamada = this.senhasService.senhasArray.SP.shift();
       if(senhaChamada !== ''){
           this.senhasService.senhasAtendidasSP.push(senhaChamada);
       }
-    }else if(this.senhasService.senhasArray.SE.length > 0){
+      this.senhasService.senhasSPEmEspera--;
+    }else if(this.senhasService.senhasSEEmEspera > 0){
       senhaChamada = this.senhasService.senhasArray.SE.shift();
       if(senhaChamada !== ''){
           this.senhasService.senhasAtendidasSE.push(senhaChamada);
       }
-    }else if(this.senhasService.senhasArray.SG.length > 0){
+      this.senhasService.senhasSEEmEspera--;
+    }else if(this.senhasService.senhasSGEmEspera > 0){
       senhaChamada = this.senhasService.senhasArray.SG.shift();
       if(senhaChamada !== ''){
           this.senhasService.senhasAtendidasSG.push(senhaChamada);
       }
+      this.senhasService.senhasSGEmEspera--;
     }
 
     console.log(this.senhasService.senhasAtendidasSE)

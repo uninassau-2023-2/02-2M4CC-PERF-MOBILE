@@ -25,16 +25,23 @@ export class SenhasService {
   public senhasAtendidasSE: any = [];
   public senhasAtendidasSG: any = [];
 
+  public senhasSGEmEspera: number = 0;
+  public senhasSPEmEspera: number = 0;
+  public senhasSEEmEspera: number = 0;
+
   somaGeral() {
     this.senhasGeral++;
+    this.senhasSGEmEspera++;
     this.senhasTotal++;
   }
   somaPrior() {
     this.senhasPrior++;
+    this.senhasSPEmEspera++;
     this.senhasTotal++;
   }
   somaExame() {
     this.senhasExame++;
+    this.senhasSEEmEspera++;
     this.senhasTotal++;
   }
 
