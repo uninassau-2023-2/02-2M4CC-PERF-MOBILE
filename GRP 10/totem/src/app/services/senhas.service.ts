@@ -9,11 +9,14 @@ export class SenhasService {
   public senhasExames: number = 0;
   public senhasTotais: number = 0;
   public senhasArray: any = [];
-  public inputNovaSenha: string = '';
+  public senhaRecente: string = '';
   public TempoIntermediarioTudo: number = 0;
   public TempoIntermediarioPrioridade: number = 0;
   public TempoIntermediarioExame: number = 0;
   public senhasChamadas: string[] = [];
+  public todasSenhasChamadas: string[] = [];
+  public senhaAtual: string = '';
+  public guiche: number = 0;
 
   constructor() {}
 
@@ -92,9 +95,7 @@ export class SenhasService {
     if (tipoSenha == 'SG') {
       this.somaGeral();
       contador = this.senhasGeral;
-      senha = `${year}${month}${day}-${tipoSenha}${contador
-        .toString()
-        .padStart(2, '0')}`;
+      senha = `${tipoSenha}${contador.toString().padStart(2, '0')} - ${day}/${month}/${year}`;
       if (!this.senhasArray['SG']) {
         this.senhasArray['SG'] = [];
       }
@@ -104,9 +105,7 @@ export class SenhasService {
     else if (tipoSenha == 'SP') {
       this.somaPrior();
       contador = this.senhasPrioridade;
-      senha = `${year}${month}${day}-${tipoSenha}${contador
-        .toString()
-        .padStart(2, '0')}`;
+      senha = `${tipoSenha}${contador.toString().padStart(2, '0')} - ${day}/${month}/${year}`;
       if (!this.senhasArray['SP']) {
         this.senhasArray['SP'] = [];
       }
@@ -116,16 +115,25 @@ export class SenhasService {
     else if (tipoSenha == 'SE') {
       this.somaExame();
       contador = this.senhasExames;
-      senha = `${year}${month}${day}-${tipoSenha}${contador
-        .toString()
-        .padStart(2, '0')}`;
+      senha = `${tipoSenha}${contador.toString().padStart(2, '0')} - ${day}/${month}/${year}`;
       if (!this.senhasArray['SE']) {
         this.senhasArray['SE'] = [];
       }
       this.senhasArray['SE'].push(senha);
     }
 
-    this.inputNovaSenha = senha;
+    this.senhasChamadas.unshift(senha);
+    if (this.senhasChamadas.length > 5) {
+      this.senhasChamadas.pop();
+    }
+
+    this.todasSenhasChamadas.unshift(senha);
+    if (this.senhasChamadas.length > 99) {
+      this.senhasChamadas.pop();
+    }
+    
+
+    this.senhaRecente = senha;
     console.log(this.senhasArray);
     this.calcularTempoMedio();
   }

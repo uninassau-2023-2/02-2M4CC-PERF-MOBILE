@@ -19,6 +19,16 @@
 </ion-card>
 
 <ion-card>
+<ion-content style="height: 300px;">
+  <ion-list>
+    <ion-item *ngFor="let senha of senhasService.todasSenhasChamadas">
+      <ion-label class="ion-text-center" style="font-size: 30px">{{ senha }} - Guichê {{senhasService.guiche}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+</ion-card>
+
+<ion-card>
   <ion-card-header>
     <ion-label style="font-size: 30px" class="tempo-medio"
       >Tempo Médio de Atendimento:</ion-label
