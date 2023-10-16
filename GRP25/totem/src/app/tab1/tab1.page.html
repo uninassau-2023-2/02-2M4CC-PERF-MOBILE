@@ -1,7 +1,7 @@
 <ion-content>
   <ion-card>
     <ion-card-header>
-      <ion-input readonly="true" label="Senha: " ></ion-input>
+      <ion-input readonly="true" label="Senha: " value="{{senhasService.inputNovaSenha}}"></ion-input>
     </ion-card-header>
     <ion-card-content>
       <ion-button expand="block" (click)="senhasService.novaSenha('SG')">Senha Geral</ion-button>
