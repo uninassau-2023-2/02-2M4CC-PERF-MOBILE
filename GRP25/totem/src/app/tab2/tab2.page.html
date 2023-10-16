@@ -14,12 +14,12 @@
         <ion-label>Geral:</ion-label>
       </ion-card-header>
       <ion-card-content>
-        <ion-chip
+        <ion-item
       *ngFor="let senha of senhasService.senhasAtendidasSG.slice(-2)"
       style="font-size: 30px"
     >
       {{ senha }}
-    </ion-chip>
+    </ion-item>
       </ion-card-content>
     </ion-card>
 
@@ -28,12 +28,12 @@
         <ion-label>Prioritária:</ion-label>
       </ion-card-header>
       <ion-card-content>
-        <ion-chip
+        <ion-item
       *ngFor="let senha of senhasService.senhasAtendidasSP.slice(-2)"
       style="font-size: 30px"
     >
       {{ senha }}
-    </ion-chip>
+    </ion-item>
       </ion-card-content>
     </ion-card>
 
@@ -42,12 +42,12 @@
         <ion-label>Exame:</ion-label>
       </ion-card-header>
       <ion-card-content>
-        <ion-chip
+        <ion-item
       *ngFor="let senha of senhasService.senhasAtendidasSE.slice(-2)"
       style="font-size: 30px;"
     >
       {{ senha }}
-    </ion-chip>
+    </ion-item>
       </ion-card-content>
     </ion-card>
 
