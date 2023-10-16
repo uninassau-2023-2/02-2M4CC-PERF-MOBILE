@@ -13,9 +13,27 @@
     </ion-card-header>
 
     <ion-card-content>
-      <ion-button expand="block" (click)="senhasService.novaSenha('SG')">Senha Geral</ion-button>
-      <ion-button expand="block" (click)="senhasService.novaSenha('SP')">Senha Prioritária</ion-button>
-      <ion-button expand="block" (click)="senhasService.novaSenha('SE')">Senha Exame</ion-button>
+      <ion-button expand="block" (click)="gerarSenhaSG()">Senha Geral</ion-button>
+      <ion-button expand="block" (click)="gerarSenhaSP()">Senha Prioritária</ion-button>
+      <ion-button expand="block" (click)="gerarSenhaSE()">Senha Exame</ion-button>
+    </ion-card-content>
+  </ion-card>
+  
+  <!-- Exibir as últimas 5 senhas chamadas -->
+  <ion-card>
+    <ion-card-header>
+      <h2>Últimas 5 Senhas Chamadas:</h2>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let senha of senhasService.ultimasSenhasChamadas; let i = index">
+          {{ senha }}
+          Guichê: {{ dataEGuiches[i].guiche }}
+          <ion-item>
+              Data: {{ dataEGuiches[i].data }}
+          </ion-item>
+        </ion-item>
+      </ion-list>
     </ion-card-content>
   </ion-card>
 </ion-content>

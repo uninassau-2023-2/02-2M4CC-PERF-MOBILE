@@ -10,9 +10,38 @@ import { SenhasService } from '../services/senhas.service';
 
 export class Tab1Page {
   
+  dataEGuiches: any[] = []
   inputNovaSenha: string = '';
 
   constructor(public senhasService: SenhasService) {}
+
+  generateRandomNumberToGuiche() {
+    return Math.floor(Math.random() * 10) + 1;
+  }
+
+  gerarSenhaSG() {
+    this.senhasService.novaSenha('SG')
+    const data = new Date().toLocaleString();
+    const guiche = this.generateRandomNumberToGuiche()
+
+    this.dataEGuiches.push({data, guiche})
+  }
+
+  gerarSenhaSP() {
+    this.senhasService.novaSenha('SP')
+    const data = new Date().toLocaleString();
+    const guiche = this.generateRandomNumberToGuiche()
+
+    this.dataEGuiches.push({data, guiche})
+  }
+
+  gerarSenhaSE() {
+    this.senhasService.novaSenha('SE')
+    const data = new Date().toLocaleString();
+    const guiche = this.generateRandomNumberToGuiche()
+
+    this.dataEGuiches.push({data, guiche})
+  }
 
 }
 

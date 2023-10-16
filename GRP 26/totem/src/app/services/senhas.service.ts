@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SenhasService {
-
   public senhasGeral: number = 0;
   public senhasPrior: number = 0;
   public senhasExame: number = 0;
@@ -14,8 +13,8 @@ export class SenhasService {
     SP: [],
     SE: []
   };
-
-  public inputNovaSenha: string = ''; 
+  public inputNovaSenha: string = '';
+  public ultimasSenhasChamadas: string[] = [];
 
   novaSenha(tipoSenha: string = '') {
     if (tipoSenha == 'SG') {
@@ -28,6 +27,7 @@ export class SenhasService {
         tipoSenha +
         (this.senhasArray['SG'].length + 1).toString().padStart(2, '0');
       this.senhasArray['SG'].push(this.inputNovaSenha);
+      this.atualizarUltimasSenhas(this.inputNovaSenha);
     } else if (tipoSenha == 'SP') {
       this.somaPrior();
       this.inputNovaSenha =
@@ -38,6 +38,7 @@ export class SenhasService {
         tipoSenha +
         (this.senhasArray['SP'].length + 1).toString().padStart(2, '0');
       this.senhasArray['SP'].push(this.inputNovaSenha);
+      this.atualizarUltimasSenhas(this.inputNovaSenha);
     } else if (tipoSenha == 'SE') {
       this.somaExame();
       this.inputNovaSenha =
@@ -48,8 +49,16 @@ export class SenhasService {
         tipoSenha +
         (this.senhasArray['SE'].length + 1).toString().padStart(2, '0');
       this.senhasArray['SE'].push(this.inputNovaSenha);
+      this.atualizarUltimasSenhas(this.inputNovaSenha);
     }
     console.log(this.senhasArray);
+  }
+
+  atualizarUltimasSenhas(novaSenha: string) {
+    this.ultimasSenhasChamadas.push(novaSenha);
+    if (this.ultimasSenhasChamadas.length > 5) {
+      this.ultimasSenhasChamadas.shift(); // Remova a senha mais antiga se houver mais de 5
+    }
   }
 
   constructor() { }
