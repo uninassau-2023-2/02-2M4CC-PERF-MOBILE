@@ -1,7 +1,8 @@
 {
   "name": "lista3",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "capacitor": {}
   },
   "type": "angular"
 }
