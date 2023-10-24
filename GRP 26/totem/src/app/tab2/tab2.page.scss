@@ -1,0 +1,37 @@
+/* Estilo para o cabeçalho da página */
+ion-header {
+    background: #007bff; /* Cor de fundo azul */
+    color: white; /* Cor do texto no cabeçalho */
+  }
+  
+  ion-toolbar {
+    --background: #007bff; /* Cor de fundo azul para a barra de ferramentas */
+  }
+  
+  /* Estilo para o título na barra de ferramentas */
+  ion-title {
+    font-size: 1.5rem; /* Tamanho da fonte do título */
+  }
+  
+  /* Estilo para a lista de itens */
+  ion-list {
+    margin-top: 20px; /* Espaçamento superior da lista */
+  }
+  
+  /* Estilo para os itens da lista */
+  ion-item {
+    border-bottom: 1px solid #ddd; /* Linha divisória entre os itens */
+  }
+  
+  /* Estilo para o avatar nas imagens dos itens */
+  ion-avatar img {
+    border-radius: 50%; /* Tornar a imagem do avatar redonda */
+    width: 50px; /* Tamanho da imagem do avatar */
+    height: 50px;
+  }
+  
+  /* Estilo para o texto dos itens */
+  ion-label {
+    font-size: 1rem; /* Tamanho da fonte do texto */
+  }
+  

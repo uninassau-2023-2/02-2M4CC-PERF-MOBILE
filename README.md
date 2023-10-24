@@ -5,5 +5,3 @@
 * Nayara Dianielly - 01565992
 * Júlio César - 01552118
 * Kayo de Freitas - 01556944
-
-
