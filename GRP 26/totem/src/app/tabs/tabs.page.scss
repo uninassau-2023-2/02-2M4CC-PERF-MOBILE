@@ -1,0 +1,6 @@
+ /* Estilo para o ícone selecionado (com destaque em forma de elipse mais clara) */
+  ion-tab-button.selecionado ion-icon {
+    color: #007bff; /* Cor mais clara para o ícone selecionado */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* Destaque em forma de elipse */
+  }
+  
