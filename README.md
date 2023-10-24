@@ -1,5 +1,3 @@
-# 02-2M4CC-PERF-MOBILE
-
 #Alunos 
 
 * Gefferson Gabryel - 01514876
