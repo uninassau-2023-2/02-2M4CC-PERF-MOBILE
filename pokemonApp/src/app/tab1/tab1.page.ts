@@ -13,8 +13,17 @@ export class Tab1Page {
     bairro: '',
     localidade: '',
     logradouro: '',
-    wf: ''
+    uf: ''
   };
+
+  pokemonid: number | undefined;
+  pokemon: any = {
+    name: '',
+    sprites: '',
+    abilities: '',
+    height: '',
+    weight: '',
+  }
   constructor(
     private pokeAPIService: PokeAPIService,
     private viaCEPService: ViaCepService
@@ -25,8 +34,18 @@ buscarPokemon() {
     this.areaBusca.logradouro = JSON.parse(JSON.stringify(value)) ['logradouro'];
     this.areaBusca.bairro = ', ' + JSON.parse(JSON.stringify(value)) ['bairro'];
     this.areaBusca.localidade = ' - ' + JSON.parse(JSON.stringify(value)) ['localidade'];
-    this.areaBusca.wf = '-' + JSON.parse(JSON.stringify(value)) ['uf'];
+    this.areaBusca.uf = '-' + JSON.parse(JSON.stringify(value)) ['uf'];
   });
-  this.pokeAPIService.getPokeAPIService();
+  this.pokeAPIService.getPokeAPIService(this.pokemonid)
+  .subscribe((value) => {
+    this.pokemon.name = JSON.parse(JSON.stringify(value)) ['name'];
+    this.pokemon.sprites = JSON.parse(JSON.stringify(value)) ['sprites'];
+
+    const abilitiesArray = JSON.parse(JSON.stringify(value))['abilities'];
+    this.pokemon.abilities = abilitiesArray.map((ability: any) => ability.ability.name).join(', ');
+
+    this.pokemon.height = JSON.parse(JSON.stringify(value)) ['height'];
+    this.pokemon.weight = JSON.parse(JSON.stringify(value)) ['weight'];
+  })
 }
 }
