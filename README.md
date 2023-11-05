@@ -1,5 +1,3 @@
-# 02-2M4CC-PERF-MOBILE
-
 # Alunos
 
 * Luana Vitória - 01565426

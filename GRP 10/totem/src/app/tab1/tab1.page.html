@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center header-title" style="font-size: 40px">
+      Senha Atual
+    </ion-title>
+    <ion-item>
+      <ion-label style="color: blue; font-size: 40px" class="ion-text-center">{{ senhasService.senhaAtual }}</ion-label>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+<ion-card-content class="ion-text-center" style="font-size: 60px;">
+  <ion-title class="ion-text-center header-title" style="font-size: 40px">Sua Senha</ion-title>
+  {{ senhasService.senhaRecente }}
+</ion-card-content>
+  <ion-card-content>
+    <ion-button
+      expand="block"
+      (click)="senhasService.novaSenha('SG')"
+      style="font-size: 25px; padding: 15px"
+      >Senha Geral</ion-button
+    >
+    <ion-button
+      expand="block"
+      (click)="senhasService.novaSenha('SP')"
+      style="font-size: 25px; padding: 15px"
+      >Senha Prioritária</ion-button
+    >
+    <ion-button
+      expand="block"
+      (click)="senhasService.novaSenha('SE')"
+      style="font-size: 25px; padding: 15px"
+      >Senha Para Exame</ion-button
+    >
+  </ion-card-content>
+
