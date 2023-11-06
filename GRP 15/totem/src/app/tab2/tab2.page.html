@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Atendimento
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Atendimento</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+    <ion-header>
+      <ion-input readonly="true" label="Guichê 1: " value="{{senhasService.guiche1}}"></ion-input>
+    </ion-header>
+    <ion-card-content>
+      <ion-button expand="block" (click)="senhasService.atenderSenha(1)">Chamar senha</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-header>
+      <ion-input readonly="true" label="Guichê 2: " value="{{senhasService.guiche2}}"></ion-input>
+    </ion-header>
+    <ion-card-content>
+      <ion-button expand="block" (click)="senhasService.atenderSenha(2)">Chamar senha</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-header>
+      <ion-input readonly="true" label="Guichê 3: " value="{{senhasService.guiche3}}"></ion-input>
+    </ion-header>
+    <ion-card-content>
+      <ion-button expand="block" (click)="senhasService.atenderSenha(3)">Chamar senha</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-header>
+      <ion-input readonly="true" label="Guichê 4: " value="{{senhasService.guiche4}}"></ion-input>
+    </ion-header>
+    <ion-card-content>
+      <ion-button expand="block" (click)="senhasService.atenderSenha(4)">Chamar senha</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>
