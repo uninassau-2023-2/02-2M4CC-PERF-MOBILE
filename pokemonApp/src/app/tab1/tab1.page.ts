@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PokeAPIService } from '../services/poke-api.service';
 import { ViaCepService } from '../services/via-cep.service';
+import { TabsPage } from '../tabs/tabs.page';
 
 @Component({
   selector: 'app-tab1',
@@ -24,9 +25,14 @@ export class Tab1Page {
     height: '',
     weight: '',
   }
+
+  pokemon1: any = {
+    abilities: '',
+  }
   constructor(
     private pokeAPIService: PokeAPIService,
-    private viaCEPService: ViaCepService
+    private viaCEPService: ViaCepService,
+    private tabsPage: TabsPage
   ) {}
 buscarPokemon() {
   this.viaCEPService.getViaCEPService(this.areaBuscarPokemon)
@@ -43,9 +49,12 @@ buscarPokemon() {
 
     const abilitiesArray = JSON.parse(JSON.stringify(value))['abilities'];
     this.pokemon.abilities = abilitiesArray.map((ability: any) => ability.ability.name).join(', ');
+    this.pokemon1.abilities = abilitiesArray.length;
+    this.tabsPage.updateTab1Abilities(this.pokemon1.abilities);
 
     this.pokemon.height = JSON.parse(JSON.stringify(value)) ['height'];
     this.pokemon.weight = JSON.parse(JSON.stringify(value)) ['weight'];
+
   })
 }
 }
