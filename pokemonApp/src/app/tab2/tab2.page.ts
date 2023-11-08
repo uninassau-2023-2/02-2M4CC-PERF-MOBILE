@@ -40,9 +40,6 @@ export class Tab2Page {
         this.tab1Abilities = this.tabsPage.tab1Abilities;;     
     
     }
-    toNumber(value: string): number {
-      return +value; // Converte a string em um número
-    }
 
   addPhotoToGallery() {
     this.photoService.addNewToGallery();
