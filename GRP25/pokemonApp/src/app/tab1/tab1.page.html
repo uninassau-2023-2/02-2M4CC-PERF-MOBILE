@@ -15,34 +15,21 @@
 
   <ion-card>
     <ion-card-header>
-      <ion-input
-        [(ngModel)]="areaBuscarPokemon"
-        [counter]="true"
-        fill="solid"
-        helperText="Área para buscar Pokemon"
-        labelPlacement="floating"
-        label="CEP"
-        maxlength="8"
-        placeholder="22555888"
-        type="text"
-      ></ion-input>
-      <ion-button
-        expand="block"
-        fill="solid"
-        (click)="buscarPokemon()"
-      >Buscar por Pokemon
-      <ion-icon name="search" slot="end"></ion-icon>
-    </ion-button>
+      <ion-input [(ngModel)]="areaBuscarPokemon" [counter]="true" fill="solid" helperText="Área para buscar Pokemon"
+        labelPlacement="floating" label="CEP" maxlength="8" placeholder="22555888" type="text"></ion-input>
+      <ion-button expand="block" fill="solid" (click)="buscarPokemon()">Buscar por Pokemon
+        <ion-icon name="search" slot="end"></ion-icon>
+      </ion-button>
     </ion-card-header>
 
     <ion-card-content>
       <ion-list>
         <ion-item>
           {{
-            this.areaBusca.logradouro +
-            this.areaBusca.bairro +
-            this.areaBusca.localidade +
-            this.areaBusca.uf
+          this.areaBusca.logradouro +
+          this.areaBusca.bairro +
+          this.areaBusca.localidade +
+          this.areaBusca.uf
           }}
         </ion-item>
       </ion-list>

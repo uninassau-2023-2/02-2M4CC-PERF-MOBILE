@@ -1,1 +1,21 @@
-Comandos usados ionic start pokemonApp tabs --capacitor --type=angular 
+Comandos usados
+
+Criar service:
+ionic g service services/Photo
+ionic g service services/GetSet
+
+iniciar capacitor:
+npm init @capacitor/app
+npx cap init
+npm i @capacitor/android @capacitor/ios
+npx cap add android
+
+criar executavel android:
+npm run build
+npx cap sync
+
+selecionar versão local do jdk:
+asdf local java openjdk-17
+
+rodar projeto no android:
+ionic capacitor run android -l --external
