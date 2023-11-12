@@ -9,6 +9,7 @@ import { forkJoin } from 'rxjs';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+  numberOfAbilitiesTab1: number = 0; // Defina esse número ao carregar o Pokémon na Tab1
   areaBuscarPokemon: string = '52011210';
   areaBusca: any = {
     bairro: '',
@@ -49,6 +50,8 @@ export class Tab1Page {
       this.areaBusca.bairro = cepData.bairro;
       this.areaBusca.localidade = cepData.localidade;
       this.areaBusca.uf = cepData.uf;
+
+      this.pokeAPIService.setData(this.pokemonData.abilities)
     });
   }
 }
