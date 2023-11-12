@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { ActionSheetController } from '@ionic/angular';
-import { UserPhoto, PhotoService } from '../services/photo.service';
+import { PhotoService } from '../services/photo.service';
+import { PokeAPIService } from '../services/poke-api.service';
+import { GetSetValueService } from '../services/get-set-value.services';
 
 @Component({
   selector: 'app-tab2',
@@ -9,31 +10,58 @@ import { UserPhoto, PhotoService } from '../services/photo.service';
 })
 export class Tab2Page {
 
-  constructor(public photoService: PhotoService, public actionSheetController: ActionSheetController) {}
-
-  async ngOnInit() {
-    await this.photoService.loadSaved();
+  constructor(private photoService: PhotoService, private pokeAPIService: PokeAPIService, private getSet: GetSetValueService) {
+    this.init();
+    setInterval(() => {
+      this.verify();
+    }, 1000)
   }
 
-  public async showActionSheet(photo: UserPhoto, position: number) {
-    const actionSheet = await this.actionSheetController.create({
-      header: 'Photos',
-      buttons: [{
-        text: 'Delete',
-        role: 'destructive',
-        icon: 'trash',
-        handler: () => {
-          this.photoService.deletePicture(photo, position);
-        }
-      }, {
-        text: 'Cancel',
-        icon: 'close',
-        role: 'cancel',
-        handler: () => {
-          // Nothing to do, action sheet is automatically closed
-         }
-      }]
+  color = "";
+  mensagem = "";
+  teste = this.getSet.getValor()
+
+  pokeAttr: any = {
+    name: '',
+    height: '',
+    weight: '',
+    abilities: '',
+    image: ''
+  }
+
+  num1: number = 0
+  num2: number = 2
+
+  init() {
+    this.pokeAPIService.getPokeAPIService().subscribe((value) => {
+      this.pokeAttr.name = JSON.parse(JSON.stringify(value))['name'];
+      this.pokeAttr.height = JSON.parse(JSON.stringify(value))['height'];
+      this.pokeAttr.weight = JSON.parse(JSON.stringify(value))['weight'];
+      this.pokeAttr.abilities = JSON.parse(JSON.stringify(value))['abilities'].length;
+      this.pokeAttr.image = JSON.parse(JSON.stringify(value))['sprites']['other']['dream_world']['front_default'];
     });
-    await actionSheet.present();
   }
+
+  addPhotoToGallery() {
+    this.photoService.addNewToGallery();
+  }
+
+  verify() {
+    this.num1 = parseInt(this.pokeAttr.abilities)
+    this.num2 = this.getSet.getValor()
+
+    if (this.num1 == this.num2) {
+      this.color = "yellow";
+      this.mensagem = "EMPATE";
+    } 
+    
+    if (this.num1 > this.num2) {
+      this.color = "red";
+      this.mensagem = "GANHOU"
+    } else if (this.num1 < this.num2){
+      this.color = "green";
+      this.mensagem = "PERDEU"
+    }
+  }
+
 }
