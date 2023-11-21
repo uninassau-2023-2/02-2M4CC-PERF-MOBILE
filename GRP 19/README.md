@@ -5,3 +5,7 @@
 * Kayo de Freitas - 01556944
 * Nayara Dianielly - 01565992
 * Vinicius Lima- 01572230
+
+## 2023-11-21
+
+* Desenvolvido parcialmente até a lista 6
