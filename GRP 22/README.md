@@ -8,3 +8,7 @@
 * Osvaldo Queiroz- 01523854
 * Luís Botelho- 01537098
 * Luiz Cristiano- 01536154
+
+## 2023-11-21
+
+* Desenvolvido parcialmente até a lista 6, consulta da api externa funcionou com erros
