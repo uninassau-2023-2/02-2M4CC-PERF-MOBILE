@@ -16,8 +16,10 @@ export class Tab1Page {
     logradouro: '',
     uf: ''
   };
+  pokemonList: any[] = [];
 
   pokemonid: number | undefined;
+  
   pokemon: any = {
     name: '',
     sprites: '',
@@ -32,7 +34,7 @@ export class Tab1Page {
   constructor(
     private pokeAPIService: PokeAPIService,
     private viaCEPService: ViaCepService,
-    private tabsPage: TabsPage
+    private tabsPage: TabsPage,
   ) {}
 buscarPokemon() {
   this.viaCEPService.getViaCEPService(this.areaBuscarPokemon)
@@ -55,6 +57,7 @@ buscarPokemon() {
     this.pokemon.height = JSON.parse(JSON.stringify(value)) ['height'];
     this.pokemon.weight = JSON.parse(JSON.stringify(value)) ['weight'];
 
+    this.pokeAPIService.addPokemonData(this.pokemon);
   })
-}
+  }
 }

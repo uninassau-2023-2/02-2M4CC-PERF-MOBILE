@@ -20,14 +20,8 @@
     <ion-card-content>
       <ion-list>
         <ion-item>
-          <ion-label class='danger' *ngIf="this.tab1Abilities > this.pokemon2.abilities">
-            Perdeu
-          </ion-label>
-          <ion-label class='sucess' *ngIf="this.tab1Abilities < this.pokemon2.abilities">
-            Ganhou
-          </ion-label>
-          <ion-label class='warning' *ngIf="this.tab1Abilities == this.pokemon2.abilities">
-            Empate
+          <ion-label [ngStyle]="getStyleForBattleResult()">
+            {{battleResult}}
           </ion-label>
         </ion-item>
         <ion-item>
