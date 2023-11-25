@@ -1,1 +1,0 @@
-Comandos usados ionic start pokemonApp tabs --capacitor --type=angular 
