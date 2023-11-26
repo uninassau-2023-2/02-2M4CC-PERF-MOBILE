@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { PokeAPIService } from '../services/poke-api.service';
-import { ViaCEPService } from '../services/via-cep.service';
-import { GetSetValueService } from '../services/get-set-value.services';
+import { ViaCepService } from '../services/via-cep.service';
+import { TabsPage } from '../tabs/tabs.page';
 
 @Component({
   selector: 'app-tab1',
@@ -9,45 +9,55 @@ import { GetSetValueService } from '../services/get-set-value.services';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-  areaBuscarPokemon: string = '54765115';
+  areaBuscarPokemon: string = '52011210';
   areaBusca: any = {
     bairro: '',
-    logradouro: '',
     localidade: '',
-    uf: '',
+    logradouro: '',
+    uf: ''
   };
-  pokeAttr: any = {
-    name: 'bulbasaur',
-    height: '7',
-    weight: '69',
-    abilities: '2',
-    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg'
+  pokemonList: any[] = [];
+
+  pokemonid: number | undefined;
+  
+  pokemon: any = {
+    name: '',
+    sprites: '',
+    abilities: '',
+    height: '',
+    weight: '',
+  }
+
+  pokemon1: any = {
+    abilities: '',
   }
   constructor(
     private pokeAPIService: PokeAPIService,
-    private viaCEPService: ViaCEPService,
-    private getSet: GetSetValueService,
-  ) { 
-    setInterval(() => {
-      this.getSet.setValor(this.pokeAttr.abilities)
-    }, 100)
-  }
-  
-  buscarPokemon() {
-    this.viaCEPService.getViaCEPService(this.areaBuscarPokemon).subscribe((value) => {
-      this.areaBusca.logradouro = JSON.parse(JSON.stringify(value))['logradouro'];
-      this.areaBusca.bairro = ', ' + JSON.parse(JSON.stringify(value))['bairro'];
-      this.areaBusca.localidade = ' - ' + JSON.parse(JSON.stringify(value))['localidade'];
-      this.areaBusca.uf = '-' + JSON.parse(JSON.stringify(value))['uf'];
-    });
-    this.pokeAPIService.getPokeAPIService().subscribe((value) => {
-      this.pokeAttr.name = JSON.parse(JSON.stringify(value))['name'];
-      this.pokeAttr.height = JSON.parse(JSON.stringify(value))['height'];
-      this.pokeAttr.weight = JSON.parse(JSON.stringify(value))['weight'];
-      this.pokeAttr.abilities = JSON.parse(JSON.stringify(value))['abilities'].length;
-      this.pokeAttr.image = JSON.parse(JSON.stringify(value))['sprites']['other']['dream_world']['front_default'];
-    });
+    private viaCEPService: ViaCepService,
+    private tabsPage: TabsPage,
+  ) {}
+buscarPokemon() {
+  this.viaCEPService.getViaCEPService(this.areaBuscarPokemon)
+  .subscribe((value) => {
+    this.areaBusca.logradouro = JSON.parse(JSON.stringify(value)) ['logradouro'];
+    this.areaBusca.bairro = ', ' + JSON.parse(JSON.stringify(value)) ['bairro'];
+    this.areaBusca.localidade = ' - ' + JSON.parse(JSON.stringify(value)) ['localidade'];
+    this.areaBusca.uf = '-' + JSON.parse(JSON.stringify(value)) ['uf'];
+  });
+  this.pokeAPIService.getPokeAPIService(this.pokemonid)
+  .subscribe((value) => {
+    this.pokemon.name = JSON.parse(JSON.stringify(value)) ['name'];
+    this.pokemon.sprites = JSON.parse(JSON.stringify(value)) ['sprites'];
 
-    this.getSet.setValor(parseInt(this.pokeAttr.abilities))
+    const abilitiesArray = JSON.parse(JSON.stringify(value))['abilities'];
+    this.pokemon.abilities = abilitiesArray.map((ability: any) => ability.ability.name).join(', ');
+    this.pokemon1.abilities = abilitiesArray.length;
+    this.tabsPage.updateTab1Abilities(this.pokemon1.abilities);
+
+    this.pokemon.height = JSON.parse(JSON.stringify(value)) ['height'];
+    this.pokemon.weight = JSON.parse(JSON.stringify(value)) ['weight'];
+
+    this.pokeAPIService.addPokemonData(this.pokemon);
+  })
   }
 }
