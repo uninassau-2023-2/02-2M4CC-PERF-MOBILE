@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GetSetValueService } from '../services/get-set-value.service';
 
 @Component({
   selector: 'app-tab3',
@@ -7,6 +8,8 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
+  constructor(private getSet: GetSetValueService) { }
+
+  public pokemons: any = this.getSet.pokemons;
 
 }

@@ -49,8 +49,17 @@ export class Tab1Page {
       this.pokeAttr.weight = JSON.parse(JSON.stringify(value))['weight'];
       this.pokeAttr.abilities = JSON.parse(JSON.stringify(value))['abilities'].length;
       this.pokeAttr.image = JSON.parse(JSON.stringify(value))['sprites']['other']['dream_world']['front_default'];
+
+      this.getSet.pokemons.push({
+        nome: JSON.parse(JSON.stringify(value))['name'],
+        image: JSON.parse(JSON.stringify(value))['sprites']['front_default'],
+        derrota: 0,
+        empate: 0,
+        vitoria: 0
+      })
     });
 
+    this.getSet.lastPokemon++
     this.getSet.setValor(parseInt(this.pokeAttr.abilities))
   }
 }

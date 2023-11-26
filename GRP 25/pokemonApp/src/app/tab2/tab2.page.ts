@@ -11,10 +11,7 @@ import { GetSetValueService } from '../services/get-set-value.service';
 export class Tab2Page {
 
   constructor(private photoService: PhotoService, private pokeAPIService: PokeAPIService, private getSet: GetSetValueService) {
-    this.init();
-    setInterval(() => {
-      this.verify();
-    }, 1000)
+
   }
 
   color = "";
@@ -39,7 +36,13 @@ export class Tab2Page {
       this.pokeAttr.weight = JSON.parse(JSON.stringify(value))['weight'];
       this.pokeAttr.abilities = JSON.parse(JSON.stringify(value))['abilities'].length;
       this.pokeAttr.image = JSON.parse(JSON.stringify(value))['sprites']['other']['dream_world']['front_default'];
+      this.verify();
     });
+  }
+
+  ionViewWillEnter() {
+    this.init()
+    console.log(this.getSet.pokemons)
   }
 
   addPhotoToGallery() {
@@ -53,12 +56,15 @@ export class Tab2Page {
     if (this.num1 == this.num2) {
       this.color = "yellow";
       this.mensagem = "EMPATE";
+      this.getSet.pokemons[this.getSet.lastPokemon - 1].empate++
     } else if (this.num1 > this.num2) {
       this.color = "red";
       this.mensagem = "GANHOU"
+      this.getSet.pokemons[this.getSet.lastPokemon - 1].derrota++
     } else {
       this.color = "green";
       this.mensagem = "PERDEU"
+      this.getSet.pokemons[this.getSet.lastPokemon - 1].vitoria++
     }
   }
 
