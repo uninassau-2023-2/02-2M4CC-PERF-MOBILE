@@ -1,0 +1,4 @@
+Codigos utilizados no CMD:
+ionic start pokemonApp tabs --capacitor --type=angular 
+npm install
+ionic serve
