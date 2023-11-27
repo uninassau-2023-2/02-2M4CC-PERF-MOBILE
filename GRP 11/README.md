@@ -6,3 +6,7 @@
 * Fernando Patrício - 01530576
 * Pedro Henrique Marques - 01530577
 * Edleson Junior - 01516994
+
+## 2023-11-27
+
+* Desenvolvido parcialmente até a lista 7
