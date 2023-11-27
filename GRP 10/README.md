@@ -6,6 +6,10 @@
 * Matheus José - 01521951
 * Joao Valadares - 01499788
 
+## 2023-11-27
+
+* Desenvolvido parcialmente até a lista 7
+
 ## 2023-11-21
 
 * Desenvolvido parcialmente até a lista 6
