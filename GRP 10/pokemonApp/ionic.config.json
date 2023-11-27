@@ -1,7 +1,7 @@
 {
-  "name": "pokemonApp",
+  "name": "Photo Gallery NG Capacitor",
   "integrations": {
-    "cordova": {}
+    "capacitor": {}
   },
   "type": "angular"
 }

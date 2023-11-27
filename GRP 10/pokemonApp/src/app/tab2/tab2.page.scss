@@ -1,0 +1,15 @@
+.center-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ion-content ion-toolbar {
+  --background: translucent;
+
+  // Apply the center-image class to the image within ion-toolbar
+  img {
+    @extend .center-image;
+  }
+}
+

@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
+    <ion-title class="ion-text-center">
       Buscar Pokémon
     </ion-title>
   </ion-toolbar>
@@ -15,51 +15,64 @@
 
   <ion-card>
     <ion-card-header>
-    <ion-input
-    [(ngModel)]="areaBuscarPokemon"
-    [counter]="true"
-    fill="solid"
-    helperText="Área para buscar por Pokemon"
-    label-Placement="floating"
-    label="CEP"
-    maxlength="8"
-    placeholder="22555888"
-    type="text"
-    ></ion-input>
-    <ion-button
-    expand="block"
-    fill="solid"
-    (click)="buscarPokemon()"
-    >
-    Buscar por Pokemon
-    <ion-icon name="search" slot="end"></ion-icon>
-    </ion-button>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-list>
-        <ion-item>{{ this.areaBusca.logradouro }}  {{ this.areaBusca.bairro}}  {{this.areaBusca.localidade}}  {{this.areaBusca.uf}}</ion-item>
-      </ion-list>
-    </ion-card-content>
-    </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>{{ pokemonData.name }}</ion-card-title>
-      <ion-img [src]="pokemonData.image"></ion-img>
+      <ion-input class="ion-text-center"
+      [(ngModel)] = "areaBuscarPokemon"
+      fill="solid"
+      helperText="Área para buscar por Pokemon"
+      label-placement="floating"
+      label="CEP"
+      maxlength="8"
+      placeholder="22555888"
+      type="text"
+      ></ion-input>
+      <ion-button
+        expand="block"
+        fill="solid"
+        (click)="buscarPokemon()"
+      >
+        Buscar por Pokemon
+        <ion-icon name="search" slot="end"></ion-icon>
+      </ion-button>
     </ion-card-header>
 
     <ion-card-content>
-      <ion-list>
+      <ion-list >
         <ion-item>
-          <ion-label>Abilities: {{ pokemonData.abilities }}</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-label>Height: {{ pokemonData.height }}</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-label>Weight: {{ pokemonData.weight }}</ion-label>
+          {{
+            this.areaBusca.logradouro +
+            this.areaBusca.bairro +
+            this.areaBusca.localidade +
+            this.areaBusca.uf
+          }}
         </ion-item>
       </ion-list>
     </ion-card-content>
   </ion-card>
 
+  <ion-card class="ion-text-center">
+    <ion-card-header>
+      <ion-card-title> {{pokemon.name | uppercase}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list *ngIf="pokemon.name">
+        <ion-item>
+          <ion-img alt="{{pokemon.name}}" [src]='pokemon.image' class="imgpoke" style="image-rendering: pixelated"></ion-img>
+        </ion-item>
+        <ion-item>
+          <ion-label>Habilidades: {{pokemon1.abilities}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Altura: {{pokemon.height}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Peso: {{pokemon.weight}}</ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-list *ngIf="!pokemon.image">
+        <ion-item class="ion-text-center">
+          Você ainda não achou nenhum Pokemon.
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
