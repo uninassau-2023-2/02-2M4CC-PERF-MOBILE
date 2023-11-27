@@ -5,6 +5,10 @@
 - [Rafael Lins](https://github.com/#)
 - [Leandro Manoel](https://github.com/#)
 
+## 2023-11-27
+
+* Ninguém presente
+
 ## 2023-11-21
 
 * Desenvolvido parcialmente até a lista 6
