@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { PhotoService } from '../services/photo.service';
 import { PokeAPIService } from '../services/poke-api.service';
-import { GetSetValueService } from '../services/get-set-value.services';
+import { PhotoService } from '../services/photo.service';
+import { TabsPage } from '../tabs/tabs.page';
 
 @Component({
   selector: 'app-tab2',
@@ -10,58 +10,82 @@ import { GetSetValueService } from '../services/get-set-value.services';
 })
 export class Tab2Page {
 
-  constructor(private photoService: PhotoService, private pokeAPIService: PokeAPIService, private getSet: GetSetValueService) {
-    this.init();
-    setInterval(() => {
-      this.verify();
-    }, 1000)
-  }
+  battleResult: string = '';
+  
+  tab1Abilities: string = '';
 
-  color = "";
-  mensagem = "";
-  teste = this.getSet.getValor()
+  pokemonList: any[] = [];
 
-  pokeAttr: any = {
+  pokemon2: any = {
     name: '',
+    sprites: '',
+    abilities: '',
     height: '',
     weight: '',
-    abilities: '',
-    image: ''
   }
 
-  num1: number = 0
-  num2: number = 2
+  constructor(
+    private pokeAPIService: PokeAPIService,
+    public photoService: PhotoService,
+    private tabsPage: TabsPage) { }
+      
 
-  init() {
-    this.pokeAPIService.getPokeAPIService().subscribe((value) => {
-      this.pokeAttr.name = JSON.parse(JSON.stringify(value))['name'];
-      this.pokeAttr.height = JSON.parse(JSON.stringify(value))['height'];
-      this.pokeAttr.weight = JSON.parse(JSON.stringify(value))['weight'];
-      this.pokeAttr.abilities = JSON.parse(JSON.stringify(value))['abilities'].length;
-      this.pokeAttr.image = JSON.parse(JSON.stringify(value))['sprites']['other']['dream_world']['front_default'];
-    });
-  }
+      ionViewWillEnter() {
+      const pokemonAleatorioID =  Math.floor(Math.random() * 100)  
+
+        this.pokeAPIService.getPokeAPIService(pokemonAleatorioID)
+          .subscribe((value) => {
+            this.pokemon2.name = JSON.parse(JSON.stringify(value)) ['name'];
+            this.pokemon2.sprites = JSON.parse(JSON.stringify(value)) ['sprites'];
+
+            const abilitiesArray = JSON.parse(JSON.stringify(value))['abilities'];
+            this.pokemon2.abilities = abilitiesArray.length;
+
+            this.pokemon2.height = JSON.parse(JSON.stringify(value)) ['height'];
+            this.pokemon2.weight = JSON.parse(JSON.stringify(value)) ['weight'];
+
+            this.initiateBattle(this.tab1Abilities, this.pokemon2);
+        })
+        this.tab1Abilities = this.tabsPage.tab1Abilities;     
+      }
+
+      initiateBattle(tab1Abilities: any, pokemon2: any) {
+
+        if (tab1Abilities < pokemon2.abilities) {
+          this.battleResult = 'Ganhou'
+          //Caso o pokemon do tab1 perca +1
+          this.pokeAPIService.defeats++;
+      
+        } else if (tab1Abilities > pokemon2.abilities) {
+          this.battleResult = 'Perdeu';
+          //Caso o pokemon do tab1 vença +1
+          this.pokeAPIService.victories++;
+        } else {
+          this.battleResult = 'Empate';
+          //Caso empate, conta mais 1
+          this.pokeAPIService.draws++;
+      }
+    }
+
+    getStyleForBattleResult() {
+      let styles = {};
+  
+      switch (this.battleResult) {
+        case 'Ganhou':
+          styles = { color: 'red' };
+          break;
+        case 'Perdeu':
+          styles = { color: 'green' };
+          break;
+        case 'Empate':
+          styles = { color: 'rgb(208, 208, 0)' };
+          break;
+      }
+  
+      return styles;
+    }
 
   addPhotoToGallery() {
     this.photoService.addNewToGallery();
   }
-
-  verify() {
-    this.num1 = parseInt(this.pokeAttr.abilities)
-    this.num2 = this.getSet.getValor()
-
-    if (this.num1 == this.num2) {
-      this.color = "yellow";
-      this.mensagem = "EMPATE";
-    } 
-    
-    if (this.num1 > this.num2) {
-      this.color = "red";
-      this.mensagem = "GANHOU"
-    } else if (this.num1 < this.num2){
-      this.color = "green";
-      this.mensagem = "PERDEU"
-    }
-  }
-
 }

@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
 })
 export class TabsPage {
 
+  tab1Abilities: string = '';
   constructor() {}
 
+  updateTab1Abilities(abilities: string) {
+    this.tab1Abilities = abilities;
+  }
 }
