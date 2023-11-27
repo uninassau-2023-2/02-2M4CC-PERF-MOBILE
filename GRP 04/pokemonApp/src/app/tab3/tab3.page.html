@@ -1,17 +1,66 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+    <ion-title> Pokédex </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title size="large">Pokédex</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-content>
+            <ion-card-header>
+              <ion-card-title>{{'bulbasaur' | uppercase}}</ion-card-title>
+              <ion-img
+                alt=""
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"
+              ></ion-img>
+            </ion-card-header>
+            <ion-list>
+              <ion-item>
+                <ion-label style="color: green">Vitorias: 8</ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label style="color: orange">Empates: 4</ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label style="color: red">Derrotas: 5</ion-label>
+              </ion-item>
+            </ion-list></ion-card-content
+          ></ion-card
+        ></ion-col
+      >
+      <ion-col>
+        <ion-card>
+          <ion-card-content>
+            <ion-card-header>
+              <ion-card-title>{{'Charizard' | uppercase}}</ion-card-title>
+              <ion-img
+                alt=""
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/6.svg"
+              ></ion-img>
+            </ion-card-header>
+            <ion-list>
+              <ion-item>
+                <ion-label style="color: green">Vitorias: 5</ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label style="color: orange">Empates: 4</ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label style="color: red">Derrotas: 8</ion-label>
+              </ion-item>
+            </ion-list></ion-card-content
+          ></ion-card
+        ></ion-col
+      >
+    </ion-row>
+  </ion-grid>
 </ion-content>
