@@ -1,0 +1,86 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Pokédex
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Pokédex</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content [fullscreen]="true">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">Pokédex</ion-title>
+      </ion-toolbar>
+    </ion-header>
+  
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>{{ pokemon1.name | uppercase }}</ion-card-title>
+              <ion-img alt='' [src]="pokemon1.sprites?.other?.dream_world?.front_default"></ion-img>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-list>
+                <ion-item>
+                  <ion-label>
+                    <ion-text class="vitorias-text">Vitórias: {{ pokemon1.abilities.length }}</ion-text>
+                  </ion-label>
+                </ion-item>
+                
+                <ion-item>
+                  <ion-label>
+                    <ion-text class="derrotas-text">Derrotas: {{ pokemon1.abilities.length }}</ion-text>
+                  </ion-label>
+                </ion-item>
+                
+                <ion-item>
+                  <ion-label>
+                    <ion-text class="empates-text">Empates: {{ pokemon1.abilities.length }}</ion-text>
+                  </ion-label>
+                </ion-item>
+              </ion-list>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+  
+        <ion-col>
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>{{ pokemon2.name | uppercase }}</ion-card-title>
+              <ion-img alt='' [src]="pokemon2.sprites?.other?.dream_world?.front_default"></ion-img>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-list>
+                <ion-item>
+                  <ion-label>
+                    <ion-text class="vitorias-text">Vitórias: {{ pokemon1.abilities.length }}</ion-text>
+                  </ion-label>
+                </ion-item>
+                
+                <ion-item>
+                  <ion-label>
+                    <ion-text class="derrotas-text">Derrotas: {{ pokemon1.abilities.length }}</ion-text>
+                  </ion-label>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label>
+                    <ion-text class="empates-text">Empates: {{ pokemon1.abilities.length }}</ion-text>
+                  </ion-label>
+                </ion-item>
+              </ion-list>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
