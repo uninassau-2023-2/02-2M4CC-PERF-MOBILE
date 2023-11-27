@@ -4,3 +4,7 @@
 * Lucas Nobre Esteves Ribeiro - 01516392
 * Diogo Chateaubriand - 01522133
 * Arthur Felipe - 01505310
+
+## 2023-11-27
+
+* Desenvolvido parcialmente até a lista 7

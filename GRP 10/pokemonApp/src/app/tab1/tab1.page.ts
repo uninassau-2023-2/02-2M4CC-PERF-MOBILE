@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { PokeAPIService } from './../services/poke-api.service';
-import { ViaCEPService } from './../services/via-cep.service';
-import { forkJoin } from 'rxjs';
+import { PokeAPIService } from '../services/poke-api.service';
+import { ViaCepService } from '../services/via-cep.service';
+import { TabsPage } from '../tabs/tabs.page';
 
 @Component({
   selector: 'app-tab1',
@@ -16,39 +16,58 @@ export class Tab1Page {
     logradouro: '',
     uf: ''
   };
-  pokemonData: any = {
+  pokemonList: any[] = [];
+
+  pokemonid: number | undefined;
+  
+  pokemon: any = {
     name: '',
+    sprites: '',
     image: '',
-    abilities: 0,
-    height: 0,
-    weight: 0
-  };
+    abilities: '',
+    height: '',
+    weight: '',
+  }
+
+  pokemon1: any = {
+    abilities: '',
+  }
+
+  selectedPokemon: any;
 
   constructor(
     private pokeAPIService: PokeAPIService,
-    private viaCEPService: ViaCEPService
+    private viaCEPService: ViaCepService,
+    private tabsPage: TabsPage,
   ) {}
+buscarPokemon() {
+  this.viaCEPService.getViaCEPService(this.areaBuscarPokemon)
+  .subscribe((value) => {
+    
+    this.areaBusca.logradouro = JSON.parse(JSON.stringify(value)) ['logradouro'];
+    this.areaBusca.bairro = ', ' + JSON.parse(JSON.stringify(value)) ['bairro'];
+    this.areaBusca.localidade = ' - ' + JSON.parse(JSON.stringify(value)) ['localidade'];
+    this.areaBusca.uf = '-' + JSON.parse(JSON.stringify(value)) ['uf'];
+  });
+  this.pokeAPIService.getPokeAPIService(this.pokemonid)
+  .subscribe((value) => {
+    this.pokemon.name = JSON.parse(JSON.stringify(value)) ['name'];
+    this.pokemon.sprites = JSON.parse(JSON.stringify(value)) ['sprites'];
+    this.pokemon.image = this.pokemon.sprites.other['dream_world'].front_default;
 
-  buscarPokemon() {
-    const randomId = Math.floor(Math.random() * 100) + 1; 
+    const abilitiesArray = JSON.parse(JSON.stringify(value))['abilities'];
+    this.pokemon.abilities = abilitiesArray.map((ability: any) => ability.ability.name).join(', ');
+    this.pokemon1.abilities = abilitiesArray.length;
+    this.tabsPage.updateTab1Abilities(this.pokemon1.abilities);
 
-    forkJoin([
-      this.pokeAPIService.getPokeAPIService(randomId),
-      this.viaCEPService.getViaCEPService(this.areaBuscarPokemon)
-    ]).subscribe(([pokemonResponse, cepResponse]) => {
-      const pokemonData = pokemonResponse as any;
-      const cepData = cepResponse as any;
+    this.pokemon.height = JSON.parse(JSON.stringify(value)) ['height'];
+    this.pokemon.weight = JSON.parse(JSON.stringify(value)) ['weight'];
+    
 
-      this.pokemonData.name = pokemonData.name.toUpperCase();
-      this.pokemonData.image = pokemonData.sprites.other['dream_world'].front_default;
-      this.pokemonData.abilities = pokemonData.abilities.length;
-      this.pokemonData.height = pokemonData.height;
-      this.pokemonData.weight = pokemonData.weight;
-
-      this.areaBusca.logradouro = cepData.logradouro;
-      this.areaBusca.bairro = cepData.bairro;
-      this.areaBusca.localidade = cepData.localidade;
-      this.areaBusca.uf = cepData.uf;
-    });
+    this.pokeAPIService.addPokemonData(this.pokemon);
+  })
   }
+
+  
 }
+

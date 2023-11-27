@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PokeAPIService } from '../services/poke-api.service';
 import { PhotoService } from '../services/photo.service';
+import { PokemonDataService } from '../services/pokemon-data.service';
 
 @Component({
   selector: 'app-tab2',
@@ -14,7 +15,7 @@ export class Tab2Page {
   numberOfAbilitiesTab1: number = 0; // Habilidades do Pokémon da Tab1
   pokemonStatus: string = ''; // Estado do Pokémon (Ganhou, Perdeu, Empate)
 
-  constructor(private pokeAPIService: PokeAPIService, public photoService: PhotoService) {}
+  constructor(private pokeAPIService: PokeAPIService, public photoService: PhotoService, private pokeDataService: PokemonDataService) {}
 
   addPhotoToGallery() {
     this.photoService.addNewToGallery();
@@ -23,7 +24,6 @@ export class Tab2Page {
   ionViewWillEnter() {
     this.numberOfAbilitiesTab1 = this.pokeAPIService.getData()
     this.loadRandomPokemon();
-    this.compareAbilities();
   }
 
   loadRandomPokemon() {
@@ -31,18 +31,22 @@ export class Tab2Page {
       this.randomPokemon = data;
       this.randomPokemonImage = data.sprites.other['dream_world'].front_default;
       this.numberOfAbilitiesTab2 = data.abilities.length;
-      console.log(this.numberOfAbilitiesTab1)
       this.compareAbilities();
     });
   }
 
   compareAbilities() {
+    let index = this.pokeDataService.arrayIndex;
+  
     if (this.numberOfAbilitiesTab2 === this.numberOfAbilitiesTab1) {
       this.pokemonStatus = 'Empate';
+      this.pokeDataService.capturedPokemons[index].draws += 1;
     } else if (this.numberOfAbilitiesTab2 > this.numberOfAbilitiesTab1) {
       this.pokemonStatus = 'Ganhou';
+      this.pokeDataService.capturedPokemons[index].defeats += 1;
     } else {
       this.pokemonStatus = 'Perdeu';
+      this.pokeDataService.capturedPokemons[index].victories += 1;
     }
   }
 }

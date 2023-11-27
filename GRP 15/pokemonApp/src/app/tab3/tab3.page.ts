@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SharedPokemonIdService } from '../services/shared-pokemon-id.service';
+
 
 @Component({
   selector: 'app-tab3',
@@ -6,7 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
+  pokemonList: any;
 
-  constructor() {}
+  constructor(private sharedPokemonIdService: SharedPokemonIdService) { }
 
+  ionViewDidEnter() {
+    this.pokemonList = this.sharedPokemonIdService.getPokemonList();
+    console.log(this.pokemonList)
+  }
 }

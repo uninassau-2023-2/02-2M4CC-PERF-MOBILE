@@ -9,6 +9,11 @@
 * Luís Botelho- 01537098
 * Luiz Cristiano- 01536154
 
+## 2023-11-27
+
+* Desenvolvido parcialmente até a lista 5
+* O projeto regrediu
+
 ## 2023-11-21
 
 * Desenvolvido parcialmente até a lista 6, consulta da api externa funcionou com erros

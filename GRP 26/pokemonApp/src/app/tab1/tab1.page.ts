@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PokeAPIService } from './../services/poke-api.service';
 import { ViaCEPService } from './../services/via-cep.service';
 import { forkJoin } from 'rxjs';
+import { PokemonDataService } from '../services/pokemon-data.service';
 
 @Component({
   selector: 'app-tab1',
@@ -9,7 +10,7 @@ import { forkJoin } from 'rxjs';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-  numberOfAbilitiesTab1: number = 0; // Defina esse número ao carregar o Pokémon na Tab1
+  numberOfAbilitiesTab1: number = 0;
   areaBuscarPokemon: string = '52011210';
   areaBusca: any = {
     bairro: '',
@@ -27,11 +28,12 @@ export class Tab1Page {
 
   constructor(
     private pokeAPIService: PokeAPIService,
-    private viaCEPService: ViaCEPService
+    private viaCEPService: ViaCEPService,
+    private pokemonDataService: PokemonDataService
   ) {}
 
   buscarInformacoes() {
-    const randomId = Math.floor(Math.random() * 100) + 1; 
+    const randomId = Math.floor(Math.random() * 100) + 1;
 
     forkJoin([
       this.pokeAPIService.getPokeAPIService(randomId),
@@ -45,13 +47,27 @@ export class Tab1Page {
       this.pokemonData.abilities = pokemonData.abilities.length;
       this.pokemonData.height = pokemonData.height;
       this.pokemonData.weight = pokemonData.weight;
+      this.pokeAPIService.setData(pokemonData.abilities.length)
 
       this.areaBusca.logradouro = cepData.logradouro;
       this.areaBusca.bairro = cepData.bairro;
       this.areaBusca.localidade = cepData.localidade;
       this.areaBusca.uf = cepData.uf;
 
-      this.pokeAPIService.setData(this.pokemonData.abilities)
+      this.pokemonDataService.capturedPokemons.push({
+        name: this.pokemonData.name,
+        victories: 0,
+        defeats: 0,
+        draws: 0,
+        image: this.pokemonData.image,
+        abilities: this.pokemonData.abilities,
+        height: this.pokemonData.height,
+        weight: this.pokemonData.weight
+      });
     });
+
+    if (this.pokemonDataService.capturedPokemons.length > 0) {
+      this.pokemonDataService.arrayIndex += 1
+    }
   }
 }

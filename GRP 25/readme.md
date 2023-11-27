@@ -7,6 +7,6 @@
 * Ramon De Souza - 01506931
 * Willian Barbosa - 01506070
 
-## 2023-11-21
+## 2023-11-27
 
-* Grupo enviou duas pastas GRP 25, solicitei correção com o código correto.
+* Desenvolvido até a lista 7
