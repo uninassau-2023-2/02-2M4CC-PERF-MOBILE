@@ -2,7 +2,13 @@
 
 * Charles Alves Sales Junior - 01370813
 * Lauro Viana Figueiredo - 01523689
-* Vinícios Belo - 01555920
+* Vinícius Belo - 01555920
+
+## 2023-11-29
+
+* Presentes: Vinícius Belo
+* Desenvolvido até a lista 7
+* Ficou mel na chupeta!
 
 ## 2023-11-27
 
