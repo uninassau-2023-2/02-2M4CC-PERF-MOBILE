@@ -18,3 +18,4 @@ Se deseja contribuir para o desenvolvimento deste projeto, siga estas etapas:
 3. Faça suas alterações e commit: `git commit -m 'Adicione uma nova funcionalidade'`.
 4. Faça um push para a branch: `git push origin minha-funcionalidade`.
 5. Crie um Pull Request para a branch principal deste repositório.
+6
