@@ -2,11 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class ViaCEPService {
-  constructor(private HttpClient: HttpClient) {}
-  getViaCEPService(cep: string = '52011210') {
-    return this.HttpClient.get('http://viacep.com.br/ws/${cep}/json/');
+export class ViaCepService {
+  constructor(private httpClient: HttpClient) { }
+  getViaCEPService (cep: string = '52011210') {
+    return this.httpClient.get(`https://viacep.com.br/ws/${cep}/json/`);
   }
 }
