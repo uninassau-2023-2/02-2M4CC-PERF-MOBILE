@@ -1,10 +1,10 @@
 # Alunos
 
-* Lidyce Amanda - 01550458
-* Larissa Andrade -01564988
-* Thiago Paulo - 01529069
-* Matheus José - 01521951
 * Joao Valadares - 01499788
+* Larissa Andrade -01564988
+* Lidyce Amanda - 01550458
+* Matheus José - 01521951
+* Thiago Paulo - 01529069
 
 ## 2023-11-27
 

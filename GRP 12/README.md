@@ -5,6 +5,10 @@
 * Iago Pires - 01565829
 * Nicolly Xavier - 01553411
 
+## 2023-12-09
+
+* Desenvolvido parcialmente até a lista 5
+
 ## 2023-11-27
 
 * Ninguém presente
